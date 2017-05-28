@@ -1,0 +1,72 @@
+version: "2"
+services:
+  server1:
+    image: consul:0.8.3
+    command: ["agent", "-server", "-client", "0.0.0.0", "-bootstrap-expect", "3", "-node-id", "1e1b9a70-433f-11e7-a6f4-3c15c2c53ac0"]
+    networks:
+      - default
+    expose:
+      - 8300
+      - 8301
+      - 8301/udp
+      - 8302
+      - 8302/udp
+      - 8400
+      - 8500
+      - 8600
+      - 8600/udp
+
+  server2:
+    image: consul:0.8.3
+    command: ["agent", "-server", "-client", "0.0.0.0", "-node-id", "20f915d8-433f-11e7-a261-3c15c2c53ac0", "-join", "dockercomposeconsul_server1_1"]
+    depends_on:
+      - server1
+    networks:
+      - default
+    expose:
+      - 8300
+      - 8301
+      - 8301/udp
+      - 8302
+      - 8302/udp
+      - 8400
+      - 8500
+      - 8600
+      - 8600/udp
+
+  server3:
+    image: consul:0.8.3
+    command: ["agent", "-server", "-client", "0.0.0.0", "-node-id", "221cb438-433f-11e7-908b-3c15c2c53ac0", "-join", "dockercomposeconsul_server1_1"]
+    depends_on:
+      - server1
+    networks:
+      - default
+    expose:
+      - 8300
+      - 8301
+      - 8301/udp
+      - 8302
+      - 8302/udp
+      - 8400
+      - 8500
+      - 8600
+      - 8600/udp
+
+  client:
+    image: consul:0.8.3
+    networks:
+      - default
+    command: ["agent", "-client", "0.0.0.0", "-join", "dockercomposeconsul_server1_1", "-ui"]
+    depends_on:
+      - server1
+    expose:
+      - 8300
+      - 8301
+      - 8301/udp
+      - 8302
+      - 8302/udp
+    ports:
+      - 8400:8400
+      - 8500:8500
+      - 8600:8600
+      - 8600:8600/udp

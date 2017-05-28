@@ -1,0 +1,17 @@
+version: "2"
+services:
+  server4:
+    image: consul:0.8.3
+    command: ["agent", "-server", "-client", "0.0.0.0", "-node-id", "de9cc976-4345-11e7-be35-3c15c2c53ac0", "-join", "dockercomposeconsul_server2_1"]
+    networks:
+      - default
+    expose:
+      - 8300
+      - 8301
+      - 8301/udp
+      - 8302
+      - 8302/udp
+      - 8400
+      - 8500
+      - 8600
+      - 8600/udp
