@@ -1,0 +1,14 @@
+{
+  "Name": "echo",
+  "Tags": [
+    "primary",
+    "v1"
+  ],
+  "Address": "127.0.0.1",
+  "Port": 5678,
+  "EnableTagOverride": false,
+  "Check": {
+    "HTTP": "http://echoservice_echo_1:5678",
+    "Interval": "10s"
+  }
+}

@@ -1,0 +1,13 @@
+version: "2"
+services:
+  echo:
+    image: hashicorp/http-echo
+    command: ["-text", "hello world"]
+    expose:
+      - 5678
+    ports:
+      - 5678:5678
+networks:
+  default:
+    external:
+      name: dockercomposeconsul_default
