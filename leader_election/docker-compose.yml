@@ -1,0 +1,9 @@
+version: "2"
+services:
+  leader_test:
+    image: leader_test
+    command: ["/leader.sh", "dockercomposeconsul_client_1"]
+networks:
+  default:
+    external:
+      name: dockercomposeconsul_default
