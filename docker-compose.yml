@@ -18,21 +18,21 @@ services:
   server2:
     extends:
       service: server1
-    command: ["agent", "-server", "-client", "0.0.0.0", "-raft-protocol", "3", "-node-id", "20f915d8-433f-11e7-a261-3c15c2c53ac0", "-join", "dockercomposeconsul_server1_1"]
+    command: ["agent", "-server", "-client", "0.0.0.0", "-raft-protocol", "3", "-node-id", "20f915d8-433f-11e7-a261-3c15c2c53ac0", "-join", "consulsandbox_server1_1"]
     depends_on:
       - server1
 
   server3:
     extends:
       service: server1
-    command: ["agent", "-server", "-client", "0.0.0.0", "-raft-protocol", "3", "-node-id", "221cb438-433f-11e7-908b-3c15c2c53ac0", "-join", "dockercomposeconsul_server1_1"]
+    command: ["agent", "-server", "-client", "0.0.0.0", "-raft-protocol", "3", "-node-id", "221cb438-433f-11e7-908b-3c15c2c53ac0", "-join", "consulsandbox_server1_1"]
     depends_on:
       - server1
 
   client:
     extends:
       service: server1
-    command: ["agent", "-client", "0.0.0.0", "-raft-protocol", "3", "-join", "dockercomposeconsul_server1_1", "-ui"]
+    command: ["agent", "-client", "0.0.0.0", "-raft-protocol", "3", "-join", "consulsandbox_server1_1", "-ui"]
     depends_on:
       - server1
     expose:

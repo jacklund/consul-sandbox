@@ -2,8 +2,8 @@ version: "2"
 services:
   leader_test:
     image: leader_test
-    command: ["/leader.sh", "dockercomposeconsul_client_1"]
+    command: ["/leader.sh", "consulsandbox_client_1"]
 networks:
   default:
     external:
-      name: dockercomposeconsul_default
+      name: consulsandbox_default
