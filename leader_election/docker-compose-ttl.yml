@@ -1,0 +1,10 @@
+version: "2"
+services:
+  leader-test:
+    image: leader_test
+    entrypoint: "/usr/local/bin/run.sh"
+    command: ['--ttl', '10']
+networks:
+  default:
+    external:
+      name: consulsandbox_default

@@ -3,6 +3,7 @@ services:
   leader-test:
     image: leader_test
     entrypoint: "/usr/local/bin/run.sh"
+    command: ['--tcp', '5678']
     networks:
       - default
     expose:

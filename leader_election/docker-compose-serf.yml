@@ -1,0 +1,9 @@
+version: "2"
+services:
+  leader-test:
+    image: leader_test
+    entrypoint: "/usr/local/bin/run.sh"
+networks:
+  default:
+    external:
+      name: consulsandbox_default

@@ -19,6 +19,6 @@ start_consul_agent
 
 # sleep 10
 
-/usr/local/bin/leader_test localhost & # $ip_address
+/usr/local/bin/leader_test localhost $@ & # $ip_address
 
 sleep 999999
