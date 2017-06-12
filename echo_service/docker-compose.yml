@@ -6,8 +6,8 @@ services:
     expose:
       - 5678
     ports:
-      - 5678:5678
+      - 5679:5678
 networks:
   default:
     external:
-      name: dockercomposeconsul_default
+      name: consulsandbox_default
