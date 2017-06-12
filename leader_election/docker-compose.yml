@@ -1,8 +1,12 @@
 version: "2"
 services:
-  leader_test:
+  leader-test:
     image: leader_test
-    command: ["/leader.sh", "consulsandbox_client_1"]
+    entrypoint: "/usr/local/bin/run.sh"
+    networks:
+      - default
+    expose:
+      - 5678
 networks:
   default:
     external:

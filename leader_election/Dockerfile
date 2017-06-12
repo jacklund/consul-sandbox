@@ -1,8 +1,8 @@
-FROM debian:jessie
+FROM consul:0.8.4
 
-RUN apt-get update
-RUN apt-get install -y curl jq
+RUN apk update && apk add python py2-pip util-linux
 
-ADD leader.sh /
+RUN pip install --upgrade pip && pip install requests argparse
 
-CMD ["/leader.sh"]
+ADD run.sh /usr/local/bin/run.sh
+ADD leader_test.py /usr/local/bin/leader_test
