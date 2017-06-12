@@ -1,7 +1,7 @@
 version: "2"
 services:
   server1:
-    image: consul:0.8.3
+    image: consul:0.8.4
     command: ["agent", "-server", "-client", "0.0.0.0", "-bootstrap-expect", "3", "-raft-protocol", "3", "-node-id", "1e1b9a70-433f-11e7-a6f4-3c15c2c53ac0"]
     networks:
       - default
