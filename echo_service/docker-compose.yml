@@ -6,7 +6,7 @@ services:
     expose:
       - 5678
     ports:
-      - 5679:5678
+      - 5678:5678
 networks:
   default:
     external:
